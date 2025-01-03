@@ -34,14 +34,12 @@ class BinarySearchTree {
     let currentNode = this.rootNode;
     while (true) {
       if (data < currentNode.data) {
-        // Go to the left child
         if (currentNode.left === null) {
           currentNode.left = newNode;
           return;
         }
         currentNode = currentNode.left;
       } else {
-        // Go to the right child
         if (currentNode.right === null) {
           currentNode.right = newNode;
           return;
@@ -83,12 +81,10 @@ class BinarySearchTree {
     }
 
     if (data === node.data) {
-      // Node has no children (leaf node)
       if (node.left === null && node.right === null) {
         return null;
       }
 
-      // Node has one child
       if (node.left === null) {
         return node.right;
       }
@@ -96,7 +92,6 @@ class BinarySearchTree {
         return node.left;
       }
 
-      // Node has two children
       const minRightNode = this._findMin(node.right);
       node.data = minRightNode.data;
       node.right = this._removeNode(node.right, minRightNode.data);

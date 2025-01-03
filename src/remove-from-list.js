@@ -30,9 +30,9 @@ class ListNode {
 }
 
 function removeKFromList(l, k) {
-  let dummy = new ListNode(0);
-  dummy.next = l;
-  let current = dummy;
+  let elem = new ListNode(0);
+  elem.next = l;
+  let current = elem;
 
   while (current.next !== null) {
     if (current.next.value === k) {
@@ -42,7 +42,7 @@ function removeKFromList(l, k) {
     }
   }
 
-  return dummy.next;
+  return elem.next;
 }
 
 module.exports = {

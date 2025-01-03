@@ -22,34 +22,34 @@ class ListNode {
 
 class Queue {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.top = null;
+    this.back = null;
   }
 
   getUnderlyingList() {
-    return this.head;
+    return this.top;
   }
 
   enqueue(value) {
     const newNode = new ListNode(value);
 
-    if (!this.tail) {
-      this.head = this.tail = newNode;
+    if (!this.back) {
+      this.top = this.back = newNode;
     } else {
-      this.tail.next = newNode;
-      this.tail = newNode;
+      this.back.next = newNode;
+      this.back = newNode;
     }
   }
 
   dequeue() {
-    if (!this.head) {
+    if (!this.top) {
       return null;
     }
 
-    const value = this.head.value;
-    this.head = this.head.next;
-    if (!this.head) {
-      this.tail = null;
+    const value = this.top.value;
+    this.top = this.top.next;
+    if (!this.top) {
+      this.back = null;
     }
 
     return value;
